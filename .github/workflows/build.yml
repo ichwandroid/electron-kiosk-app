@@ -23,6 +23,8 @@ jobs:
         run: npm install
 
       - name: Build Electron App
+        env:
+          GH_TOKEN: ${{ secrets.ELECTRONKIOSKAPP }}
         run: |
           if [[ "${{ matrix.os }}" == "windows-latest" ]]; then
             npx electron-builder --win
