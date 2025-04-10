@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Kiosk App</title>
+  <style>
+    #exit-popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 24px;
+    }
+    #exit-popup button {
+      font-size: 20px;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="exit-popup">
+    <div>
+      <p>Anda menekan Ctrl + Alt + Del</p>
+      <button onclick="closeApp()">Keluar Aplikasi</button>
+    </div>
+  </div>
+  <script src="renderer.js"></script>
+</body>
+</html>
