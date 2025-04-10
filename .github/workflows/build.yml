@@ -19,11 +19,19 @@ jobs:
         with:
           node-version: 18
 
-      - run: npm install
+      - name: Install Dependencies
+        run: npm install
 
-      - run: npx electron-builder --dir
+      - name: Build Electron App
+        run: |
+          if [[ "${{ matrix.os }}" == "windows-latest" ]]; then
+            npx electron-builder --win
+          elif [[ "${{ matrix.os }}" == "macos-latest" ]]; then
+            npx electron-builder --mac
+          fi
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
         with:
           name: release-${{ matrix.os }}
           path: dist/
